@@ -1,8 +1,7 @@
 import datetime
 import requests
 
-import settings
-import utils
+from pincushion import settings, utils
 
 
 def pb_post(
@@ -21,7 +20,7 @@ def pb_post(
     auth_string = f"{username}:{api_token}"
 
     valid_title = title[:255]
-    valid_description = description[:65536]
+    valid_description = description[:255]
     valid_tags = [tag[:255] for tag in tags]
 
     payload = {
@@ -30,7 +29,7 @@ def pb_post(
         'url': url,
         'description': valid_title,
         'extended': valid_description,
-        'tags': valid_tags,
+        'tags': ','.join(valid_tags),
         'dt': utils.pb_date_format(timestamp),
         'replace': utils.bool_to_yesno(replace, True),
         'shared': utils.bool_to_yesno(shared, True),

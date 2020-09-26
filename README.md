@@ -12,3 +12,8 @@ This project contains several small utility functions and API client code that c
 ## Settings
 
 This application gets all of its settings from environment variables. Check the settings.py to see the environment variables and set them in a way that is appropriate for your environment. Be sure to keep the envirionment variables properly secured as they will contain secrets that allow API access to various online services.
+
+### Reddit Auth
+
+[Use this script to get a Reddit refresh token](https://praw.readthedocs.io/en/latest/tutorials/refresh_token.html#refresh-token)
+
