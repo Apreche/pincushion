@@ -1,4 +1,13 @@
 import os
+import dotenv
+import pathlib
+
+ENV_PATH = os.environ.get('PINCUSHION_ENV_FILE', None)
+
+if ENV_PATH:
+    dotenv.load_dotenv(
+        dotenv_path=pathlib.Path(ENV_PATH)
+    )
 
 PICKLEDB_FILENAME = os.environ.get('PINCUSHION_DB_FILENAME', 'pincushion.db')
 
